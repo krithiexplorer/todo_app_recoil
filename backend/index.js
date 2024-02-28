@@ -1,8 +1,10 @@
 const express = require("express")
 const { checkInputMiddleware } = require("./middleware")
 const { Todo } = require("./db")
+const cors = require("cors")
 const app = express()
 app.use(express.json())
+app.use(cors());
 
 app.post("/addTodo",checkInputMiddleware,async(req,res)=>{
     const todo = await Todo.create({
