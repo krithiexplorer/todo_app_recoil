@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-mongoose.connect("mongodb+srv://learning:GNO0z745ZWvgVARG@cluster0.stznz.mongodb.net/todo-app-2")
+mongoose.connect("your mongo url😆")
 
 const todoSchema = new mongoose.Schema({
     title: String,
