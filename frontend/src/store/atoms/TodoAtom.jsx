@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const TodosAtom = atom({
-    key:"TodosAtom",
+export const TodoAtom = atom({
+    key:"TodoAtom",
     default:[]
 })
