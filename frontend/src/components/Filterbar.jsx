@@ -1,13 +1,31 @@
 import React from 'react'
 import { FilterAtom } from '../store/atoms/FilterAtom'
-import { useRecoilState } from 'recoil'
+import { FilterSelector } from '../store/selectors/FilterSelector'
+import { useRecoilState, useRecoilValue } from 'recoil'
 
 export default function Filterbar() {
    const [filterValue, setFilterValue] = useRecoilState(FilterAtom)
+   const filteredTodos = useRecoilValue(FilterSelector);
+   function generateTodos()
+   {
+      return <>
+      {filteredTodos.map((todo)=>{
+         return (
+          <>
+            <h1>{todo.title}</h1>
+            <p>{todo.description}</p>
+          </>
+         )
+      }
+      )}
+      </>
+   }
   return (
     <div>
         <input type="text" placeholder='Filter your todos' onChange={(e)=>setFilterValue(e.target.value)}/>
-        <button type="submit">Search</button>
+        <div>
+        {generateTodos()}
+        </div>
     </div>
   )
 }
